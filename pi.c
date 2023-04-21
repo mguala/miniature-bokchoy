@@ -28,7 +28,7 @@ double gregory_leibniz(int n) {
 
 int main() {
     int N = 100;  // Número de términos a aproximar
-    int shmid;
+    int shmid; // puntero de bloque
     key_t key = 1234;
     int *shm;
     pid_t pid1, pid2;
