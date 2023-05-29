@@ -1,12 +1,24 @@
-rut = reversed(input('ingresa tu RUT::>')) #reversa el rut al input
+# -*- coding: utf-8 -*-
+rut = []
+ingresar = [rut.append(numeros) for numeros in raw_input("RUT ::>")]
+rut.reverse()
 
-d = sum([int(n)*list(range(2,8))[i%6] for i,n in enumerate(rut)]) #inside out -> mueve el index del input a la vez que mueve el index del range 2,8
+recorrido = 2
+multiplicar = 0
 
-d %= 11 //divide por 11
+for x in rut:
+    multiplicar += int(x) * recorrido
+if recorrido == 7:
+    recorrido = 1
+recorrido += 1
+modulo = multiplicar % 11
+resultado = 11 - modulo
 
-if (d==1):
-    d = 'K'
+if resultado == 11:
+    digito = 0
+elif resultado == 10:
+    digito = "K"
 else:
-    d = 11-d
-    
-print(d)
+    digito = resultado
+
+print(f"Dígito verificador:", digito)
